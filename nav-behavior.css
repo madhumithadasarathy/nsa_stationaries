@@ -1,0 +1,158 @@
+/* Compact navigation reveal: desktop users can hover/focus the shrunken header
+   to restore the full page selector without scrolling back to the top. */
+/* Position animation: extend the existing header transition so the whole pill
+   glides smoothly between centered expanded state and left collapsed state. */
+.header {
+  transition:
+    left 360ms ease,
+    transform 360ms ease,
+    width 360ms ease,
+    padding 360ms ease,
+    border-radius 360ms ease,
+    box-shadow 360ms ease,
+    background 360ms ease;
+}
+
+/* Header balance: keep the logo fixed in place while the nav group centers
+   itself inside the remaining horizontal space. */
+.header nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Collapsed position: override the base centered fixed header only while the
+   nav is compact, turning it into a floating badge near the upper-left edge. */
+.header.header-shrunk {
+  left: 24px;
+  transform: translateX(0);
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .header.header-shrunk:hover,
+  .header.header-shrunk:focus-within {
+    /* Desktop reveal stays anchored to the collapsed pill so expansion flows
+       from left to right instead of jumping back to the centered header. */
+    left: 24px;
+    transform: translateX(0);
+    width: min(1120px, calc(100% - 48px));
+    padding: 16px 24px;
+    justify-content: flex-start;
+    gap: clamp(18px, 4vw, 52px);
+    border-radius: 26px;
+    background: rgba(255, 248, 232, .94);
+    box-shadow: 0 18px 62px rgba(70, 40, 20, .16);
+  }
+
+  .header.header-shrunk:hover nav,
+  .header.header-shrunk:focus-within nav {
+    opacity: 1;
+    transform: translateX(0);
+    max-width: 600px;
+    pointer-events: auto;
+  }
+
+  .header.header-shrunk:hover .logo,
+  .header.header-shrunk:focus-within .logo {
+    gap: 11px;
+  }
+
+  .header.header-shrunk:hover .logo b,
+  .header.header-shrunk:focus-within .logo b {
+    opacity: 1;
+    max-width: 200px;
+    margin: 0;
+  }
+}
+
+/* Touch navigation reveal: JavaScript toggles .header-expanded on mobile so the
+   same compact header becomes a tap-to-open page selector. */
+.header.header-shrunk.header-expanded {
+  /* Touch reveal mirrors desktop: keep the expanded compact nav anchored left
+     so it opens from the NSA pill rather than recentering. */
+  left: 24px;
+  transform: translateX(0);
+  width: min(1120px, calc(100% - 48px));
+  padding: 16px 24px;
+  justify-content: flex-start;
+  gap: clamp(18px, 4vw, 52px);
+  border-radius: 26px;
+  background: rgba(255, 248, 232, .94);
+  box-shadow: 0 18px 62px rgba(70, 40, 20, .16);
+}
+
+.header.header-shrunk.header-expanded nav {
+  opacity: 1;
+  transform: translateX(0);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  pointer-events: auto;
+}
+
+.header.header-shrunk.header-expanded .logo {
+  gap: 11px;
+}
+
+.header.header-shrunk.header-expanded .logo b {
+  opacity: 1;
+  max-width: 200px;
+  margin: 0;
+}
+
+@media (max-width: 930px) {
+  /* Keep the compact badge aligned with the mobile page gutter. */
+  .header.header-shrunk {
+    left: 12px;
+  }
+
+  .header.header-shrunk.header-expanded {
+    left: 12px;
+    transform: translateX(0);
+    width: calc(100% - 24px);
+    padding: 12px 16px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-radius: 22px;
+  }
+
+  .header.header-shrunk.header-expanded nav {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .header.header-shrunk.header-expanded nav a {
+    flex: 1 1 calc(50% - 8px);
+    text-align: center;
+    background: rgba(255, 255, 255, .58);
+  }
+}
+
+@media (max-width: 560px) {
+  /* Match the tighter small-phone edge spacing while preserving logo size. */
+  .header.header-shrunk {
+    left: 9px;
+  }
+
+  .header.header-shrunk.header-expanded {
+    left: 9px;
+    transform: translateX(0);
+    width: calc(100% - 18px);
+    padding: 10px 12px;
+  }
+
+  .header.header-shrunk.header-expanded nav a {
+    flex-basis: 100%;
+    padding: 9px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header.header-shrunk.header-expanded,
+  .header.header-shrunk.header-expanded * {
+    transition: none !important;
+  }
+}
