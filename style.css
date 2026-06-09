@@ -545,19 +545,41 @@ footer {
   max-width: 520px;
 }
 
-.footer-logo {
+.site-logo,
+.footer-logo,
+.brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
   text-decoration: none;
-  color: var(--ink);
+}
+
+.footer-logo {
   margin-bottom: 18px;
 }
 
-.footer-logo img {
-  width: 64px;
-  height: 64px;
+.site-logo img,
+.footer-logo img,
+.brand-logo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
   object-fit: contain;
+}
+
+.site-logo img {
+  height: 64px;
+}
+
+.header-shrunk .site-logo img,
+.site-header.is-scrolled .site-logo img,
+.navbar.shrink .site-logo img {
+  height: 46px;
+}
+
+.footer-logo img {
+  height: 72px;
 }
 
 .footer-brand p {
@@ -751,5 +773,19 @@ footer {
 
   .footer-bottom p {
     line-height: 1.4;
+  }
+
+  .site-logo img {
+    height: 48px;
+  }
+
+  .header-shrunk .site-logo img,
+  .site-header.is-scrolled .site-logo img,
+  .navbar.shrink .site-logo img {
+    height: 40px;
+  }
+
+  .footer-logo img {
+    height: 56px;
   }
 }
