@@ -542,7 +542,7 @@ footer {
 }
 
 .footer-brand {
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .site-logo,
@@ -555,7 +555,10 @@ footer {
 }
 
 .footer-logo {
-  margin-bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .site-logo img,
@@ -579,7 +582,11 @@ footer {
 }
 
 .footer-logo img {
-  height: 72px;
+  height: 120px;
+  width: auto;
+  max-width: 260px;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-brand p {
@@ -587,6 +594,7 @@ footer {
   line-height: 1.55;
   color: var(--brown);
   margin: 0;
+  margin-top: 0;
 }
 
 .footer-nav {
@@ -786,6 +794,11 @@ footer {
   }
 
   .footer-logo img {
-    height: 56px;
+    height: 88px;
+    max-width: 200px;
+  }
+
+  .footer-logo {
+    margin-bottom: 16px;
   }
 }
