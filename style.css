@@ -395,6 +395,15 @@ footer {
     min-height: auto !important;
   }
 
+  .range-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .range-table .row {
+    min-width: 600px;
+  }
+
   /* Auto-Showcase Mobile Fallback */
   .auto-showcase-section {
     min-height: auto;
