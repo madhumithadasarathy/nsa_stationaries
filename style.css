@@ -640,7 +640,8 @@ footer {
 }
 
 .footer-bottom p {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 100%;
   color: var(--red);
   font-weight: 900;
   letter-spacing: 0.08em;
