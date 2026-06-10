@@ -594,6 +594,8 @@ footer {
   max-width: 260px;
   object-fit: contain;
   display: block;
+  background: transparent !important;
+  mix-blend-mode: multiply !important;
 }
 
 .footer-brand p {
