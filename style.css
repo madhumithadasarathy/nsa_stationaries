@@ -651,15 +651,17 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero,
-  .bulk {
+  .hero {
     min-height: auto !important;
-    padding-block: 48px !important;
+    padding: 120px 20px 60px !important;
   }
 
-  .cards-band {
-    min-height: auto;
-    padding-block: 48px;
+  .bulk,
+  .cards-band,
+  .range,
+  .auto-showcase-section {
+    min-height: auto !important;
+    padding: 60px 20px !important;
   }
 
   .cards-heading h2,
@@ -683,10 +685,6 @@ footer {
     font-size: clamp(1.4rem, 7vw, 2rem);
   }
 
-  .range {
-    min-height: auto;
-    padding-block: 44px;
-  }
 
   .range h2,
   .range .section-title h2 {
@@ -699,9 +697,6 @@ footer {
     line-height: 1.45;
   }
 
-  .supply-card {
-    min-height: auto !important;
-  }
 
   .range-table {
     overflow-x: auto;
@@ -717,11 +712,6 @@ footer {
     padding: 10px 12px;
   }
 
-  /* Auto-Showcase Mobile Fallback */
-  .auto-showcase-section {
-    min-height: auto;
-    padding-block: 52px;
-  }
 
   .auto-showcase-inner {
     width: min(100% - 32px, 100%);
@@ -777,7 +767,7 @@ footer {
   }
 
   .footer {
-    padding-top: 40px;
+    padding: 50px 20px 30px;
   }
 
   .footer-inner {
