@@ -155,22 +155,61 @@
     </section>
 
     <section class="section-pad featured" id="featured">
-      <div class="section-head split reveal">
-        <div>
-          <span class="eyebrow">Featured Products</span>
-          <h2>Catalog favourites for bulk and everyday stationery requirements.</h2>
+      <div class="featured-header reveal">
+        <div class="featured-heading">
+          <span class="eyebrow">Featured Collections</span>
+          <h2>Popular stationery ranges worth exploring.</h2>
+          <p>Discover selected notebooks, diaries, paper products, office essentials, registers, writing instruments, and gifting collections for everyday and bulk requirements.</p>
         </div>
-        <a class="text-link" href="#bulk">Request complete catalog</a>
+        <div class="featured-actions">
+          <a class="featured-catalog-link" href="#bulk">Request complete catalog</a>
+          <div class="featured-navigation" aria-label="Featured collection controls">
+            <span class="featured-progress" aria-live="polite"><span id="featuredCurrent">01</span> / <span>08</span></span>
+            <button class="featured-arrow" id="featuredPrevious" type="button" aria-label="Previous featured collection" disabled>
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+            </button>
+            <button class="featured-arrow" id="featuredNext" type="button" aria-label="Next featured collection">
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="product-grid">
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge">Bulk Enquiry</span><img src="assets/photos/stacked_notebooks.png" alt="Premium Notebooks" loading="lazy" /></div><p>Notebooks</p><h3>Premium Notebooks</h3><small>Custom cover and bulk supply options.</small><button class="quote-trigger" type="button">Bulk enquiry</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge alt">Popular</span><img src="assets/photos/annual_diaries.png" alt="Annual Diaries" loading="lazy" /></div><p>Diaries</p><h3>Annual Diaries</h3><small>Executive diaries for offices and gifting.</small><button class="quote-trigger" type="button">Available on request</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge teal">Bulk Enquiry</span><img src="assets/photos/ledger_notebooks.png" alt="Ledger / Account Books" loading="lazy" /></div><p>Account Books</p><h3>Ledger / Account Books</h3><small>Business record books and registers.</small><button class="quote-trigger" type="button">Bulk enquiry</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge">MOQ Based</span><img src="assets/photos/paper_products.png" alt="A4 Copier Paper" loading="lazy" /></div><p>Paper</p><h3>A4 Copier Paper</h3><small>Office and institutional paper supply.</small><button class="quote-trigger" type="button">MOQ based supply</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge teal">Bulk Enquiry</span><img src="assets/photos/files_and_folders.png" alt="Box Files & Folders" loading="lazy" /></div><p>Office Supplies</p><h3>Box Files & Folders</h3><small>Filing and document storage essentials.</small><button class="quote-trigger" type="button">Bulk enquiry</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge alt">Popular</span><img src="assets/photos/premium_writing_set.png" alt="Pens & Writing Sets" loading="lazy" /></div><p>Writing</p><h3>Pens & Writing Sets</h3><small>Everyday writing and corporate sets.</small><button class="quote-trigger" type="button">Available on request</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge">Bulk Enquiry</span><img src="assets/photos/institutional_registers.png" alt="Institution Registers" loading="lazy" /></div><p>Registers</p><h3>Institution Registers</h3><small>Attendance, stock, and office registers.</small><button class="quote-trigger" type="button">Bulk enquiry</button></article>
-        <article class="product-card reveal"><div class="product-visual"><span class="product-badge teal">Custom Branding</span><img src="assets/photos/corporate_gift_hamper.png" alt="Corporate Diary Gift Sets" loading="lazy" /></div><p>Gifting</p><h3>Corporate Diary Gift Sets</h3><small>Custom branding available for bulk orders.</small><button class="quote-trigger" type="button">Custom branding</button></article>
+
+      <div class="featured-slider-shell">
+        <div class="featured-track" id="featuredTrack" role="region" aria-label="Featured product collections" tabindex="0">
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Bulk Enquiry</span><img src="assets/photos/stacked_notebooks.png" alt="Premium Notebooks" width="1434" height="1097" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">01</span><p>Notebooks</p></div><h3>Premium Notebooks</h3><small>Custom cover and bulk supply options.</small><button class="collection-cta quote-trigger" type="button">Bulk enquiry <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Popular</span><img src="assets/photos/annual_diaries.png" alt="Annual Diaries" width="1402" height="1122" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">02</span><p>Diaries</p></div><h3>Annual Diaries</h3><small>Executive diaries for offices and gifting.</small><button class="collection-cta quote-trigger" type="button">Available on request <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Bulk Enquiry</span><img src="assets/photos/ledger_notebooks.png" alt="Ledger / Account Books" width="1435" height="1096" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">03</span><p>Account Books</p></div><h3>Ledger / Account Books</h3><small>Business record books and registers.</small><button class="collection-cta quote-trigger" type="button">Bulk enquiry <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">MOQ Based</span><img src="assets/photos/paper_products.png" alt="A4 Copier Paper" width="1434" height="1097" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">04</span><p>Paper</p></div><h3>A4 Copier Paper</h3><small>Office and institutional paper supply.</small><button class="collection-cta quote-trigger" type="button">MOQ based supply <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Bulk Enquiry</span><img src="assets/photos/files_and_folders.png" alt="Box Files &amp; Folders" width="1434" height="1097" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">05</span><p>Office Supplies</p></div><h3>Box Files &amp; Folders</h3><small>Filing and document storage essentials.</small><button class="collection-cta quote-trigger" type="button">Bulk enquiry <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Popular</span><img src="assets/photos/premium_writing_set.png" alt="Pens &amp; Writing Sets" width="1402" height="1122" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">06</span><p>Writing</p></div><h3>Pens &amp; Writing Sets</h3><small>Everyday writing and corporate sets.</small><button class="collection-cta quote-trigger" type="button">Available on request <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Bulk Enquiry</span><img src="assets/photos/institutional_registers.png" alt="Institution Registers" width="1402" height="1122" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">07</span><p>Registers</p></div><h3>Institution Registers</h3><small>Attendance, stock, and office registers.</small><button class="collection-cta quote-trigger" type="button">Bulk enquiry <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+          <article class="collection-card reveal">
+            <div class="collection-image"><span class="collection-badge">Custom Branding</span><img src="assets/photos/corporate_gift_hamper.png" alt="Corporate Diary Gift Sets" width="1402" height="1122" loading="lazy" /></div>
+            <div class="collection-info"><div><span class="collection-number">08</span><p>Gifting</p></div><h3>Corporate Diary Gift Sets</h3><small>Custom branding available for bulk orders.</small><button class="collection-cta quote-trigger" type="button">Custom branding <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></button></div>
+          </article>
+        </div>
       </div>
     </section>
 

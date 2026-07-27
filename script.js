@@ -1,6 +1,6 @@
 const revealElements = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".category-grid, .product-grid, .segment-grid").forEach((grid) => {
+document.querySelectorAll(".category-grid, .product-grid, .featured-track, .segment-grid").forEach((grid) => {
   grid.querySelectorAll(".reveal").forEach((element, index) => {
     element.style.setProperty("--reveal-delay", `${Math.min(index * 45, 225)}ms`);
   });
@@ -19,6 +19,53 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => revealObserver.observe(element));
 } else {
   revealElements.forEach((element) => element.classList.add("visible"));
+}
+
+const featuredTrack = document.getElementById("featuredTrack");
+const featuredPrevious = document.getElementById("featuredPrevious");
+const featuredNext = document.getElementById("featuredNext");
+const featuredCurrent = document.getElementById("featuredCurrent");
+
+if (featuredTrack && featuredPrevious && featuredNext && featuredCurrent) {
+  const featuredCards = [...featuredTrack.querySelectorAll(".collection-card")];
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let featuredIndex = 0;
+  let featuredFrame;
+
+  const updateFeaturedState = () => {
+    const trackLeft = featuredTrack.getBoundingClientRect().left;
+    featuredIndex = featuredCards.reduce((closest, card, index) => {
+      const distance = Math.abs(card.getBoundingClientRect().left - trackLeft);
+      return distance < closest.distance ? { index, distance } : closest;
+    }, { index: 0, distance: Number.POSITIVE_INFINITY }).index;
+
+    featuredCurrent.textContent = String(featuredIndex + 1).padStart(2, "0");
+    featuredPrevious.disabled = featuredTrack.scrollLeft <= 2;
+    featuredNext.disabled = featuredTrack.scrollLeft >= featuredTrack.scrollWidth - featuredTrack.clientWidth - 2;
+    featuredFrame = null;
+  };
+
+  const scrollToFeaturedCard = (index) => {
+    const targetIndex = Math.max(0, Math.min(index, featuredCards.length - 1));
+    const target = featuredCards[targetIndex];
+    featuredTrack.scrollTo({
+      left: target.offsetLeft - featuredTrack.offsetLeft,
+      behavior: reducedMotion.matches ? "auto" : "smooth",
+    });
+  };
+
+  featuredPrevious.addEventListener("click", () => scrollToFeaturedCard(featuredIndex - 1));
+  featuredNext.addEventListener("click", () => scrollToFeaturedCard(featuredIndex + 1));
+  featuredTrack.addEventListener("scroll", () => {
+    if (!featuredFrame) featuredFrame = window.requestAnimationFrame(updateFeaturedState);
+  }, { passive: true });
+  featuredTrack.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    scrollToFeaturedCard(featuredIndex + (event.key === "ArrowRight" ? 1 : -1));
+  });
+  window.addEventListener("resize", updateFeaturedState);
+  updateFeaturedState();
 }
 
 const menuToggle = document.getElementById("menuToggle");
