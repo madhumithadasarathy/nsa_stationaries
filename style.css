@@ -400,7 +400,7 @@ p { color: var(--muted); line-height: 1.72; }
 .store-walkthrough__panel {
   display: flex;
   flex-direction: column;
-  padding: clamp(28px, 3vw, 42px);
+  padding: clamp(28px, 2.6vw, 38px);
   border-radius: var(--radius-lg);
   background: var(--burgundy-deep);
   color: #fff;
@@ -410,21 +410,21 @@ p { color: var(--muted); line-height: 1.72; }
 }
 .store-walkthrough__panel h2 {
   max-width: 500px;
-  margin: 14px 0 16px;
+  margin: 10px 0 12px;
   color: #fff;
-  font-size: clamp(34px, 3.3vw, 46px);
-  line-height: 1.08;
+  font-size: clamp(36px, 3vw, 44px);
+  line-height: 1.04;
 }
 .store-walkthrough__panel > div:first-child > p {
   max-width: 520px;
   margin: 0;
   color: rgba(255, 255, 255, .76);
-  font-size: 13px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.58;
 }
 .store-walkthrough__story {
   margin-top: auto;
-  padding-top: 30px;
+  padding-top: 18px;
 }
 .store-walkthrough__zone {
   display: inline-flex;
@@ -447,33 +447,34 @@ p { color: var(--muted); line-height: 1.72; }
   transform: translateY(5px);
 }
 .store-walkthrough__story h3 {
-  margin: 14px 0 7px;
+  margin: 10px 0 5px;
   color: #fff;
-  font-size: 22px;
+  font-size: clamp(21px, 1.7vw, 25px);
 }
 .store-walkthrough__story p {
   max-width: 430px;
   margin: 0;
   color: rgba(255, 255, 255, .74);
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
 }
 .store-walkthrough__zones {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 5px;
+  margin-top: 14px;
 }
 .store-walkthrough__zones button {
   min-height: 34px;
-  padding: 7px 10px;
+  padding: 6px 7px;
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 999px;
   background: transparent;
   color: rgba(255, 255, 255, .68);
   cursor: pointer;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 600;
+  white-space: nowrap;
   transition: background var(--motion-fast) ease, color var(--motion-fast) ease, border-color var(--motion-fast) ease;
 }
 .store-walkthrough__zones button:hover,
@@ -487,8 +488,8 @@ p { color: var(--muted); line-height: 1.72; }
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-top: 22px;
-  padding-top: 18px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, .15);
 }
 .store-walkthrough__progress {
@@ -567,9 +568,85 @@ p { color: var(--muted); line-height: 1.72; }
   font-weight: 700;
 }
 
+@media (min-width: 1101px) {
+  .store-walkthrough {
+    --store-header-offset: 112px;
+    --store-section-pad: clamp(24px, 3.5svh, 42px);
+    min-height: calc(100svh - var(--store-header-offset));
+    display: grid;
+    align-items: center;
+    padding-top: var(--store-section-pad);
+    padding-bottom: var(--store-section-pad);
+  }
+  .store-walkthrough__layout {
+    height: clamp(
+      520px,
+      calc(100svh - var(--store-header-offset) - var(--store-section-pad) - var(--store-section-pad)),
+      680px
+    );
+    min-height: 0;
+    max-height: calc(100svh - var(--store-header-offset) - var(--store-section-pad) - var(--store-section-pad));
+  }
+}
+
+@media (min-width: 1101px) and (max-height: 820px) {
+  .store-walkthrough {
+    --store-section-pad: 20px;
+  }
+  .store-walkthrough__layout {
+    grid-template-columns: minmax(300px, 33%) minmax(0, 67%);
+    gap: 16px;
+  }
+  .store-walkthrough__panel {
+    padding: 28px;
+  }
+  .store-walkthrough__panel h2 {
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 36px;
+  }
+  .store-walkthrough__panel > div:first-child > p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .store-walkthrough__story {
+    padding-top: 12px;
+  }
+  .store-walkthrough__story h3 {
+    margin-top: 8px;
+    font-size: 21px;
+  }
+  .store-walkthrough__story p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+  .store-walkthrough__zones {
+    gap: 4px;
+    margin-top: 10px;
+  }
+  .store-walkthrough__zones button {
+    min-height: 32px;
+    padding: 5px 6px;
+    font-size: 7.5px;
+  }
+  .store-walkthrough__navigation {
+    margin-top: 10px;
+    padding-top: 9px;
+  }
+  .store-walkthrough__controls button {
+    width: 44px;
+    height: 44px;
+  }
+  .store-walkthrough__stage {
+    box-shadow: 0 14px 34px rgba(48, 36, 32, .12);
+  }
+}
+
 @media (max-width: 1100px) {
   .store-walkthrough__layout {
     min-height: 0;
+    height: auto;
+    max-height: none;
     grid-template-columns: 1fr;
   }
   .store-walkthrough__panel {
