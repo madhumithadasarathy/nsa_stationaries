@@ -85,58 +85,74 @@
       </div>
     </section>
 
-    <section class="section-pad store-walkthrough" id="store" aria-labelledby="storeWalkthroughTitle">
-      <div class="store-walkthrough__layout">
-        <div class="store-walkthrough__panel reveal">
-          <div>
-            <span class="eyebrow">Step Inside Our Store</span>
-            <h2 id="storeWalkthroughTitle">See NSA Stationers up close.</h2>
-            <p>Take a quick walkthrough of our working space and see the people, equipment, paper stock, and finishing process behind our stationery supply.</p>
-          </div>
+    <section class="section-pad paper-trail" id="store" aria-labelledby="paperTrailTitle">
+      <div class="paper-trail__header reveal">
+        <span class="eyebrow">How We Work</span>
+        <h2 id="paperTrailTitle">From your requirement to ready stationery supply.</h2>
+        <p>A straightforward process for retail purchases, institutional requirements, custom stationery, corporate gifting, and bulk orders.</p>
+      </div>
 
-          <div class="store-walkthrough__story">
-            <span class="store-walkthrough__zone" id="storeZone">Workshop Overview</span>
-            <div id="storeStatus" aria-live="polite" aria-atomic="true">
-              <h3 id="storeCaptionTitle">Inside the workshop</h3>
-              <p id="storeCaption">A wide view across the production floor, equipment, and prepared paper stock.</p>
+      <div class="paper-trail__journey">
+        <svg class="paper-trail__connector" viewBox="0 0 1000 210" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M88 92 C160 18 245 18 300 105 S445 192 500 105 S645 18 700 105 S845 192 912 108" pathLength="1" />
+          <circle cx="88" cy="92" r="6" />
+          <circle cx="300" cy="105" r="6" />
+          <circle cx="500" cy="105" r="6" />
+          <circle cx="700" cy="105" r="6" />
+          <circle cx="912" cy="108" r="6" />
+        </svg>
+
+        <ol class="paper-trail__stages">
+          <li class="process-stage process-stage--note reveal">
+            <span class="process-stage__marker" aria-hidden="true"></span>
+            <div class="process-stage__topline">
+              <span class="process-stage__number">01</span>
+              <span class="material-symbols-rounded process-stage__icon" aria-hidden="true">sticky_note_2</span>
             </div>
-          </div>
+            <h3>Share Your Requirement</h3>
+            <p>Tell us what you need for your school, office, institution, retail counter, or corporate requirement.</p>
+          </li>
 
-          <div class="store-walkthrough__zones" aria-label="Store walkthrough zones">
-            <button class="is-active" type="button" data-store-slide="0" aria-pressed="true">Overview</button>
-            <button type="button" data-store-slide="3" aria-pressed="false">Finishing</button>
-            <button type="button" data-store-slide="7" aria-pressed="false">Production</button>
-            <button type="button" data-store-slide="14" aria-pressed="false">Assembly</button>
-            <button type="button" data-store-slide="18" aria-pressed="false">Stock</button>
-          </div>
-
-          <div class="store-walkthrough__navigation">
-            <span class="store-walkthrough__progress" aria-label="Store image progress">
-              <span id="storeCurrent">01</span> / <span>19</span>
-            </span>
-            <div class="store-walkthrough__controls">
-              <button id="storePrevious" type="button" aria-label="Previous store image" disabled>
-                <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
-              </button>
-              <button id="storeNext" type="button" aria-label="Next store image">
-                <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
-              </button>
+          <li class="process-stage process-stage--folder reveal">
+            <span class="process-stage__marker" aria-hidden="true"></span>
+            <div class="process-stage__topline">
+              <span class="process-stage__number">02</span>
+              <span class="material-symbols-rounded process-stage__icon" aria-hidden="true">folder_copy</span>
             </div>
-          </div>
-        </div>
+            <h3>Select the Right Products</h3>
+            <p>Choose from notebooks, registers, paper products, files, writing materials, office supplies, and gifting options.</p>
+          </li>
 
-        <div class="store-walkthrough__stage reveal delay" id="storeStage" role="group" aria-label="NSA Stationers store walkthrough" tabindex="0">
-          <img
-            id="storeImage"
-            src="assets/shop/d398a9db-14b7-4d06-b1f6-3a321e994233.JPG"
-            alt="Wide view of the NSA Stationers production workshop"
-            width="1600"
-            height="1200"
-            loading="lazy"
-            decoding="async"
-          />
-          <span class="store-walkthrough__image-count" aria-hidden="true">01</span>
-        </div>
+          <li class="process-stage process-stage--specification reveal">
+            <span class="process-stage__marker" aria-hidden="true"></span>
+            <div class="process-stage__topline">
+              <span class="process-stage__number">03</span>
+              <span class="material-symbols-rounded process-stage__icon" aria-hidden="true">design_services</span>
+            </div>
+            <h3>Confirm Quantity &amp; Customisation</h3>
+            <p>Finalise quantities, formats, cover requirements, branding, and other available specifications where applicable.</p>
+          </li>
+
+          <li class="process-stage process-stage--sheets reveal">
+            <span class="process-stage__marker" aria-hidden="true"></span>
+            <div class="process-stage__topline">
+              <span class="process-stage__number">04</span>
+              <span class="material-symbols-rounded process-stage__icon" aria-hidden="true">layers</span>
+            </div>
+            <h3>Preparation &amp; Finishing</h3>
+            <p>The order is organised, prepared, finished, and packed according to the confirmed requirement.</p>
+          </li>
+
+          <li class="process-stage process-stage--label reveal">
+            <span class="process-stage__marker" aria-hidden="true"></span>
+            <div class="process-stage__topline">
+              <span class="process-stage__number">05</span>
+              <span class="material-symbols-rounded process-stage__icon" aria-hidden="true">inventory_2</span>
+            </div>
+            <h3>Ready for Supply</h3>
+            <p>The completed order is prepared for collection, dispatch, or the agreed supply arrangement.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
