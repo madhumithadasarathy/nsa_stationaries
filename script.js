@@ -21,6 +21,57 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => element.classList.add("visible"));
 }
 
+const heroShopStrip = document.querySelector(".hero-shop-strip");
+
+if (heroShopStrip) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let isDragging = false;
+  let dragStartX = 0;
+  let dragStartScroll = 0;
+
+  heroShopStrip.addEventListener("pointerdown", (event) => {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+
+    isDragging = true;
+    dragStartX = event.clientX;
+    dragStartScroll = heroShopStrip.scrollLeft;
+    heroShopStrip.classList.add("is-dragging");
+    heroShopStrip.setPointerCapture(event.pointerId);
+  });
+
+  heroShopStrip.addEventListener("pointermove", (event) => {
+    if (!isDragging) return;
+    event.preventDefault();
+    heroShopStrip.scrollLeft = dragStartScroll - (event.clientX - dragStartX);
+  });
+
+  const stopHeroDrag = (event) => {
+    if (!isDragging) return;
+    isDragging = false;
+    heroShopStrip.classList.remove("is-dragging");
+    if (heroShopStrip.hasPointerCapture(event.pointerId)) {
+      heroShopStrip.releasePointerCapture(event.pointerId);
+    }
+  };
+
+  heroShopStrip.addEventListener("pointerup", stopHeroDrag);
+  heroShopStrip.addEventListener("pointercancel", stopHeroDrag);
+  heroShopStrip.addEventListener("lostpointercapture", () => {
+    isDragging = false;
+    heroShopStrip.classList.remove("is-dragging");
+  });
+
+  heroShopStrip.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+    event.preventDefault();
+    heroShopStrip.scrollBy({
+      left: (event.key === "ArrowRight" ? 1 : -1) * heroShopStrip.clientWidth * 0.75,
+      behavior: reduceMotion.matches ? "auto" : "smooth",
+    });
+  });
+}
+
 const storeSlides = [
   {
     src: "assets/shop/d398a9db-14b7-4d06-b1f6-3a321e994233.JPG",
