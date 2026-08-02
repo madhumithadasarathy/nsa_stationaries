@@ -1,9 +1,10 @@
 const WHATSAPP_NUMBER = "919952095668";
 const WHATSAPP_MESSAGE = "Hello NSA Stationers, I would like to know more about your products and services.";
 const floatingWhatsAppLink = document.getElementById("floatingWhatsApp");
+const normalizedWhatsAppNumber = WHATSAPP_NUMBER.replace(/\D/g, "");
 
 if (floatingWhatsAppLink) {
-  floatingWhatsAppLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  floatingWhatsAppLink.href = `https://wa.me/${normalizedWhatsAppNumber}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 }
 
 const revealElements = document.querySelectorAll(".reveal");
