@@ -1,3 +1,11 @@
+const WHATSAPP_NUMBER = "919952095668";
+const WHATSAPP_MESSAGE = "Hello NSA Stationers, I would like to know more about your products and services.";
+const floatingWhatsAppLink = document.getElementById("floatingWhatsApp");
+
+if (floatingWhatsAppLink) {
+  floatingWhatsAppLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+}
+
 const revealElements = document.querySelectorAll(".reveal");
 
 document.querySelectorAll(".category-grid, .product-grid, .featured-track, .segment-grid, .paper-trail__stages").forEach((grid) => {
