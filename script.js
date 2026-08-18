@@ -33,10 +33,10 @@ if (floatingWhatsAppLink) {
 
 const revealElements = document.querySelectorAll(".reveal");
 
-document.querySelectorAll(".category-grid, .catalog-category-grid, .product-grid, .featured-track, .segment-grid, .paper-trail__stages, .promo-bands").forEach((grid) => {
+document.querySelectorAll(".category-grid, .catalog-category-grid, .product-grid, .featured-track, .paper-trail__stages, .promo-bands").forEach((grid) => {
   grid.querySelectorAll(".reveal").forEach((element, index) => {
     const delayStep = grid.classList.contains("paper-trail__stages")
-      ? 110
+      ? 160
       : grid.classList.contains("catalog-category-grid")
         ? 90
       : grid.classList.contains("promo-bands")
@@ -60,6 +60,59 @@ if ("IntersectionObserver" in window) {
   revealElements.forEach((element) => revealObserver.observe(element));
 } else {
   revealElements.forEach((element) => element.classList.add("visible"));
+}
+
+const typewriterHeading = document.querySelector("[data-typewriter]");
+
+if (typewriterHeading) {
+  const typewriterOutput = typewriterHeading.querySelector(".typewriter-heading__text");
+  const typewriterText = typewriterHeading.dataset.typewriter || "";
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let typewriterStarted = false;
+
+  const showTypewriterText = () => {
+    if (!typewriterOutput) return;
+    typewriterOutput.textContent = typewriterText;
+    typewriterHeading.classList.add("is-complete");
+  };
+
+  const startTypewriter = () => {
+    if (typewriterStarted || !typewriterOutput) return;
+    typewriterStarted = true;
+    typewriterHeading.classList.add("is-typing");
+    let characterIndex = 0;
+
+    const typeNextCharacter = () => {
+      characterIndex += 1;
+      typewriterOutput.textContent = typewriterText.slice(0, characterIndex);
+
+      if (characterIndex < typewriterText.length) {
+        const character = typewriterText[characterIndex - 1];
+        const typingDelay = /[,.]/.test(character) ? 150 : character === " " ? 24 : 48;
+        window.setTimeout(typeNextCharacter, typingDelay);
+      } else {
+        typewriterHeading.classList.remove("is-typing");
+        typewriterHeading.classList.add("is-complete");
+      }
+    };
+
+    typeNextCharacter();
+  };
+
+  if (prefersReducedMotion) {
+    showTypewriterText();
+  } else if ("IntersectionObserver" in window) {
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        startTypewriter();
+        typewriterObserver.disconnect();
+      }
+    }, { threshold: 0.55 });
+
+    typewriterObserver.observe(typewriterHeading);
+  } else {
+    startTypewriter();
+  }
 }
 
 const heroShopStrip = document.querySelector(".hero-shop-strip");
@@ -356,7 +409,16 @@ const navLinks = [...document.querySelectorAll(".primary-nav a[href^='#']")];
 const navTargets = navLinks
   .map((link) => ({ link, target: document.querySelector(link.getAttribute("href")) }))
   .filter(({ target }) => target);
+const contactNavTargets = navTargets.filter(({ target }) => target.id === "contact");
+let preferredContactNavLink = null;
 let navFrame;
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    preferredContactNavLink = link.getAttribute("href") === "#contact" ? link : null;
+    if (!navFrame) navFrame = window.requestAnimationFrame(updateActiveNav);
+  });
+});
 
 const updateActiveNav = () => {
   const marker = window.scrollY + 150;
@@ -366,13 +428,33 @@ const updateActiveNav = () => {
     if (item.target.offsetTop <= marker) active = item;
   });
 
-  navLinks.forEach((link) => link.classList.toggle("is-active", link === active?.link));
+  const contactTarget = document.getElementById("contact");
+  const pageBottom = window.scrollY + window.innerHeight;
+  const documentHeight = document.documentElement.scrollHeight;
+  const contactIsVisible = contactTarget
+    && contactTarget.getBoundingClientRect().top <= window.innerHeight * 0.82;
+  const isAtPageBottom = pageBottom >= documentHeight - 8;
+
+  if (contactNavTargets.length && (contactIsVisible || isAtPageBottom)) {
+    active = contactNavTargets.find(({ link }) => link === preferredContactNavLink)
+      || contactNavTargets[contactNavTargets.length - 1];
+  }
+
+  navLinks.forEach((link) => {
+    const isActive = link === active?.link;
+    link.classList.toggle("is-active", isActive);
+    if (isActive) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
   navFrame = null;
 };
 
 window.addEventListener("scroll", () => {
   if (!navFrame) navFrame = window.requestAnimationFrame(updateActiveNav);
 }, { passive: true });
+window.addEventListener("resize", () => {
+  if (!navFrame) navFrame = window.requestAnimationFrame(updateActiveNav);
+});
 updateActiveNav();
 
 const quoteModal = document.getElementById("quoteFormModal");

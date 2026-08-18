@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; style-src-elem 'self' https://fonts.googleapis.com; style-src-attr 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data:; connect-src 'none'; media-src 'self'; frame-src 'none'; worker-src 'none'; manifest-src 'self'; form-action 'none'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>NSA Stationers | Stationery Catalog & Bulk Supply</title>
   <meta name="description" content="NSA Stationers supplies notebooks, registers, account books, office supplies, diaries, corporate gifts, and bulk stationery for schools, offices, institutions, and retail buyers." />
   <link rel="icon" type="image/png" href="assets/images/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,0,0&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,500,0,0&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" referrerpolicy="no-referrer" />
   <link rel="preload" as="image" href="assets/images/logo.png" />
   <link rel="preload" as="image" href="assets/photos/hero_collection.png" />
   <link rel="stylesheet" href="style.css" />
@@ -17,35 +19,18 @@
 <body>
   <div class="site-splash" id="siteSplash" role="status" aria-label="NSA Stationers is loading">
     <div class="site-splash__content">
-      <div class="site-splash__logo-wrap">
-        <img src="assets/images/logo.png" alt="NSA Stationers" class="site-splash__logo" />
+      <div class="site-splash__logo-stage">
+        <span class="site-splash__orbit site-splash__orbit--outer" aria-hidden="true"></span>
+        <span class="site-splash__orbit site-splash__orbit--inner" aria-hidden="true"></span>
+        <div class="site-splash__logo-wrap">
+          <img src="assets/images/logo.png" alt="NSA Stationers" class="site-splash__logo" />
+        </div>
       </div>
       <div class="site-splash__brand">
         <strong>NSA Stationers</strong>
         <span>Associated with Frontline Stationaries</span>
       </div>
-      <div class="splash-production" aria-hidden="true">
-        <div class="splash-machine">
-          <span class="splash-machine__frame"></span>
-          <span class="splash-machine__arm"></span>
-          <span class="splash-machine__press"></span>
-          <span class="splash-machine__feeder"></span>
-          <span class="splash-machine__light"></span>
-          <div class="splash-machine__conveyor">
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <div class="splash-book">
-            <span class="splash-book__cover splash-book__cover--back"></span>
-            <span class="splash-book__sheet splash-book__sheet--one"></span>
-            <span class="splash-book__sheet splash-book__sheet--two"></span>
-            <span class="splash-book__sheet splash-book__sheet--three"></span>
-            <span class="splash-book__cover splash-book__cover--front"></span>
-            <span class="splash-book__spine"></span>
-            <span class="splash-book__stamp">NSA</span>
-          </div>
-        </div>
-        <span class="splash-production__caption">Manufacturing quality stationery</span>
-      </div>
+      <span class="site-splash__tagline">Manufacturing Quality Notobooks &amp; wholeseller of stationary Products</span>
       <div class="site-splash__loader" aria-hidden="true">
         <span></span><span></span><span></span>
       </div>
@@ -62,37 +47,54 @@
       </span>
     </a>
 
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#notebooks">Notebooks</a>
+      <a href="#corporate-gifting">Corporate Gifting</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a
+        class="header-whatsapp"
+        id="floatingWhatsApp"
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+        referrerpolicy="no-referrer"
+        aria-label="Contact NSA Stationers on WhatsApp"
+        title="Contact us on WhatsApp"
+      >
+        <span class="header-whatsapp__icon" aria-hidden="true">
+          <svg viewBox="0 0 32 32">
+            <path d="M16 4.25A11.75 11.75 0 0 0 5.82 21.86L4.5 27.5l5.78-1.26A11.75 11.75 0 1 0 16 4.25Z" />
+            <path d="M11.1 9.75c.3-.68.61-.7.9-.71h.76c.24 0 .5.09.63.44l.9 2.18c.1.25.06.48-.08.69l-.68.86c-.2.24-.16.48-.02.72.7 1.2 1.66 2.18 2.84 2.9.26.16.5.18.72-.08l.91-1.06c.2-.24.47-.3.75-.19l2.14 1c.3.14.48.3.52.53.04.22.04 1.28-.56 2.05-.58.74-1.5 1.14-2.48 1.14-1.03 0-2.82-.45-4.72-1.62-2.47-1.53-4.08-3.8-4.2-3.97-.12-.17-1-1.33-1-2.54 0-1.22.62-1.82.67-1.89Z" />
+          </svg>
+        </span>
+        <span class="header-whatsapp__text">Chat with us</span>
+      </a>
+      <button class="header-cta quote-trigger" type="button">Enquire</button>
+    </div>
+
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primaryNav">
       <span></span>
       <span></span>
       <span></span>
     </button>
-
-    <nav class="primary-nav" id="primaryNav" aria-label="Primary navigation">
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#notebooks">Notebooks</a>
-      <a href="#office-supplies">Office Supplies</a>
-      <a href="#corporate-gifting">Corporate Gifting</a>
-      <a href="#bulk">Bulk Enquiry</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="header-cta quote-trigger" type="button">Enquire</button>
   </header>
 
   <main id="home">
     <section class="hero section-pad">
       <div class="hero-copy reveal">
-        <span class="eyebrow">Stationery manufacturers for schools, offices &amp; institutions</span>
         <h1>
-          <span>Manufacturing Notebooks &amp; Stationery</span>
-          <span>Wholesaler for every requirement</span>
+          <span>Manufacturing Quality Notebooks &amp;</span>
+          <span>Wholesale Stationery for Every Requirement</span>
         </h1>
-        <p>NSA Stationers manufactures notebooks, registers, account books, paper products, office essentials, diaries, and customised corporate gifting solutions for retail, institutional, and bulk requirements.</p>
+        <p>NSA Stationers is a trusted notebook manufacturer and stationery wholesaler, serving businesses, institutions, retailers, and bulk buyers with quality products</p>
         <div class="hero-actions">
           <a class="btn primary" href="#products">Explore Products</a>
-          <a class="btn secondary" href="#bulk">Request Complete Catalogue</a>
+          <a class="btn secondary" href="#contact">Request Complete Catalogue</a>
         </div>
       </div>
 
@@ -111,7 +113,15 @@
     <section class="section-pad paper-trail" id="store" aria-labelledby="paperTrailTitle">
       <div class="paper-trail__header reveal">
         <span class="eyebrow">How We Work</span>
-        <h2 id="paperTrailTitle">From your requirement to ready stationery supply.</h2>
+        <h2
+          class="typewriter-heading"
+          id="paperTrailTitle"
+          data-typewriter="From your requirement to ready stationery supply."
+          aria-label="From your requirement to ready stationery supply."
+        >
+          <span class="typewriter-heading__sizer" aria-hidden="true">From your requirement to ready stationery supply.</span>
+          <span class="typewriter-heading__text" aria-hidden="true"></span>
+        </h2>
         <p>A straightforward process for retail purchases, institutional requirements, custom stationery, corporate gifting, and bulk orders.</p>
       </div>
 
@@ -221,7 +231,7 @@
         </article>
         <article class="catalog-category-card reveal">
           <img src="assets/photos/category-school-stationery-v2.jpg" alt="School Stationery" width="1536" height="1024" loading="lazy" />
-          <div class="catalog-category-content"><span class="catalog-category-index">09</span><h3><span>School Stationery</span></h3><p>Institutional stationery for schools and colleges.</p><a href="#bulk">Enquire now <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div>
+          <div class="catalog-category-content"><span class="catalog-category-index">09</span><h3><span>School Stationery</span></h3><p>Institutional stationery for schools and colleges.</p><a href="#contact">Enquire now <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div>
         </article>
         <article class="catalog-category-card reveal">
           <img src="assets/photos/category-annual-diaries-v2.jpg" alt="Annual Diaries" width="1536" height="1024" loading="lazy" />
@@ -233,7 +243,7 @@
         </article>
         <article class="catalog-category-card reveal">
           <img src="assets/photos/category-institutional-registers-v2.jpg" alt="Institutional Registers" width="1536" height="1024" loading="lazy" />
-          <div class="catalog-category-content"><span class="catalog-category-index">12</span><h3><span>Institutional Registers</span></h3><p>Attendance, stock, inward, outward, and institutional record books.</p><a href="#bulk">Enquire now <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div>
+          <div class="catalog-category-content"><span class="catalog-category-index">12</span><h3><span>Institutional Registers</span></h3><p>Attendance, stock, inward, outward, and institutional record books.</p><a href="#contact">Enquire now <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div>
         </article>
         <article class="catalog-category-card reveal">
           <img src="assets/photos/category-office-essentials-v2.jpg" alt="Office Desk Essentials" width="1536" height="1024" loading="lazy" />
@@ -241,7 +251,7 @@
         </article>
         <article class="catalog-category-card reveal">
           <img src="assets/photos/category-bulk-supply-v2.jpg" alt="Bulk Stationery Supply" width="1536" height="1024" loading="lazy" />
-          <div class="catalog-category-content"><span class="catalog-category-index">14</span><h3><span>Bulk Stationery Supply</span></h3><p>Stationery procurement for schools, offices, retailers, and institutions.</p><a href="#bulk">Enquire now <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div>
+          <div class="catalog-category-content"><span class="catalog-category-index">14</span><h3><span>Bulk Stationery Supply</span></h3><p>Stationery procurement for schools, offices, retailers, and institutions.</p><a href="#contact">Enquire now <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span></a></div>
         </article>
       </div>
     </section>
@@ -254,7 +264,7 @@
           <p>Explore selected collections for offices, institutions, schools, gifting, and bulk procurement.</p>
         </div>
         <div class="featured-actions">
-          <a class="featured-catalog-link" href="#bulk">Request complete catalog</a>
+          <a class="featured-catalog-link" href="#contact">Request complete catalog</a>
           <div class="featured-navigation" aria-label="Featured collection controls">
             <span class="featured-progress" aria-live="polite"><span id="featuredCurrent">01</span> / <span>08</span></span>
             <button class="featured-arrow" id="featuredPrevious" type="button" aria-label="Previous featured collection" disabled>
@@ -308,15 +318,15 @@
     <section class="promo-bands section-pad">
       <article class="promo-band reveal" id="notebooks">
         <div><span>Diaries & Notebooks</span><h2>Daily writing essentials with premium gifting options.</h2><p>Notebooks, registers, planners, and annual diaries for students, offices, and institutions.</p></div>
-        <a class="btn secondary" href="#bulk">Enquire now</a>
+        <a class="btn secondary" href="#contact">Enquire now</a>
       </article>
       <article class="promo-band reveal" id="office-supplies">
         <div><span>Office Essentials</span><h2>Reliable stationery for busy desks and teams.</h2><p>Files, folders, copier paper, writing materials, computer stationery, and office supplies.</p></div>
-        <a class="btn secondary" href="#bulk">Request quote</a>
+        <a class="btn secondary" href="#contact">Request quote</a>
       </article>
       <article class="promo-band reveal">
         <div><span>School & Institutional Supplies</span><h2>Bulk stationery arranged for academic requirements.</h2><p>Practical stationery support for schools, colleges, coaching centres, and institutions.</p></div>
-        <a class="btn secondary" href="#bulk">Plan a bulk order</a>
+        <a class="btn secondary" href="#contact">Plan a bulk order</a>
       </article>
     </section>
 
@@ -336,54 +346,6 @@
       <div class="gift-visual reveal delay" aria-hidden="true">
         <img src="assets/photos/corporate_gift_hamper.png" alt="" />
         <div class="gift-note">Logo branding • Bulk gifting • Custom kits</div>
-      </div>
-    </section>
-
-    <section class="section-pad bulk-segments" id="bulk">
-      <div class="section-head reveal">
-        <span class="eyebrow">Bulk Enquiry</span>
-        <h2>B2B stationery supply with a clear catalog enquiry flow.</h2>
-      </div>
-      <div class="segment-grid">
-        <article class="segment-card reveal"><span class="material-symbols-rounded">school</span><h3>Schools & Colleges</h3><p>Notebooks, registers, writing materials, paper products, and academic supplies.</p></article>
-        <article class="segment-card reveal"><span class="material-symbols-rounded">business_center</span><h3>Offices & Businesses</h3><p>Files, paper, account books, desk supplies, and regular office essentials.</p></article>
-        <article class="segment-card reveal"><span class="material-symbols-rounded">storefront</span><h3>Retail & Wholesale Buyers</h3><p>Product assortments and repeated stationery supply based on requirement.</p></article>
-        <article class="segment-card reveal"><span class="material-symbols-rounded">redeem</span><h3>Corporate Gifting</h3><p>Diaries, notebooks, pen sets, and branded stationery kits for bulk gifting.</p></article>
-      </div>
-
-      <div class="enquiry-panel reveal">
-        <div class="enquiry-copy">
-          <span class="eyebrow">Catalog Enquiry</span>
-          <h2>Share your product requirement.</h2>
-          <p>Use the quick form below to outline products, quantity, and timeline. The existing detailed Google enquiry form is also available.</p>
-          <button class="btn primary quote-trigger" type="button">Open Detailed Enquiry Form</button>
-        </div>
-        <form class="catalog-form">
-          <label>Name<input type="text" name="name" autocomplete="name" /></label>
-          <label>Phone<input type="tel" name="phone" autocomplete="tel" /></label>
-          <label>Email<input type="email" name="email" autocomplete="email" /></label>
-          <label>Organisation / Business Name<input type="text" name="organisation" /></label>
-          <label>Requirement Type<select name="requirement"><option>Bulk stationery</option><option>School supplies</option><option>Office supplies</option><option>Corporate gifting</option><option>Retail / wholesale</option></select></label>
-          <label>Quantity<input type="text" name="quantity" /></label>
-          <label>Timeline<input type="text" name="timeline" /></label>
-          <label class="wide">Product Requirement<textarea name="message" rows="4"></textarea></label>
-          <!-- TODO: Connect this frontend-only catalog enquiry form to the selected backend or CRM. -->
-          <button class="btn primary wide quote-trigger" type="button">Submit via Detailed Form</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="newsletter section-pad">
-      <div class="newsletter-box reveal">
-        <div>
-          <span class="eyebrow">Updates</span>
-          <h2>Get updates on diaries, notebooks, bulk offers & corporate gifting.</h2>
-        </div>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Email address" aria-label="Email address" />
-          <!-- TODO: Connect newsletter signup when backend is available. -->
-          <button class="btn primary" type="button">Notify Me</button>
-        </form>
       </div>
     </section>
 
@@ -411,15 +373,7 @@
         <button class="quote-close-button" id="closeQuoteForm" type="button" aria-label="Close enquiry form">Close</button>
       </div>
       <div class="google-form-frame">
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSdbNEhghDz7IaY4b0DbvanPYhsK3ebBfZcnvyny_X0MJXctUA/viewform?embedded=true"
-          width="100%"
-          height="1350"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0">
-          Loading...
-        </iframe>
+        <a class="btn primary" href="https://forms.gle/YKKyJDoVrjPcxXN86" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer">Fill the form</a>
       </div>
     </div>
   </div>
@@ -443,7 +397,7 @@
         <h3>Quick Links</h3>
         <a href="#home">About</a>
         <a href="#products">Products</a>
-        <a href="#bulk">Bulk Enquiry</a>
+        <a href="#contact">Bulk Enquiry</a>
         <a href="#contact">Contact</a>
       </div>
       <div>
@@ -452,16 +406,16 @@
           <span class="material-symbols-rounded" aria-hidden="true">mail</span>
           <span>nsastationery2026@gmail.com</span>
         </a>
-        <button class="btn primary quote-trigger" type="button">WhatsApp / Enquire</button>
+        <button class="btn primary quote-trigger" type="button">Enquire</button>
         <div class="footer-social">
           <h4>Follow Us</h4>
           <div class="footer-social-links">
-            <a href="https://www.instagram.com/nsa_stationery?igsh=YXNqNXUxanVyemg=" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/nsa_stationery?igsh=YXNqNXUxanVyemg=" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm10.5 1.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
               </svg>
             </a>
-            <a href="https://www.facebook.com/share/1Beh1AfMKh/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <a href="https://www.facebook.com/share/1Beh1AfMKh/" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Facebook">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v2H6v4h3v7h4v-7h3.2l.8-4h-4V9c0-.7.3-1 1-1Z" />
               </svg>
@@ -476,27 +430,6 @@
       <span>Built by Admad Innovations</span>
     </div>
   </footer>
-
-  <a
-    class="floating-whatsapp"
-    id="floatingWhatsApp"
-    href="https://wa.me/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Contact NSA Stationers on WhatsApp"
-    title="Contact us on WhatsApp"
-  >
-    <span class="floating-whatsapp__label" aria-hidden="true">
-      <small>Need help?</small>
-      Chat with us
-    </span>
-    <span class="floating-whatsapp__icon" aria-hidden="true">
-      <svg viewBox="0 0 32 32">
-        <path d="M16 4.25A11.75 11.75 0 0 0 5.82 21.86L4.5 27.5l5.78-1.26A11.75 11.75 0 1 0 16 4.25Z" />
-        <path d="M11.1 9.75c.3-.68.61-.7.9-.71h.76c.24 0 .5.09.63.44l.9 2.18c.1.25.06.48-.08.69l-.68.86c-.2.24-.16.48-.02.72.7 1.2 1.66 2.18 2.84 2.9.26.16.5.18.72-.08l.91-1.06c.2-.24.47-.3.75-.19l2.14 1c.3.14.48.3.52.53.04.22.04 1.28-.56 2.05-.58.74-1.5 1.14-2.48 1.14-1.03 0-2.82-.45-4.72-1.62-2.47-1.53-4.08-3.8-4.2-3.97-.12-.17-1-1.33-1-2.54 0-1.22.62-1.82.67-1.89Z" />
-      </svg>
-    </span>
-  </a>
 
   <script src="script.js"></script>
 </body>
